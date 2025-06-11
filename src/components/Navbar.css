@@ -1,6 +1,11 @@
 .navbar {
   padding: 1%;
-  background-color: rgb(111, 196, 224);
+  background-image: linear-gradient(
+    270deg,
+    rgb(111, 196, 224),
+    rgb(53, 133, 185) /* darker blue */
+  );
+  box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.3);
 }
 .navbar-title {
   display: flex;
@@ -9,7 +14,11 @@
   column-gap: 15px;
 }
 .navbar-title h1 {
-  font-size: 35px;
+  font-size: clamp(
+    1.5rem,
+    2.5vw,
+    2rem
+  ); /* font will scale between 1rem and 2 rem */
   color: white;
 }
 .navbar-title img {
@@ -19,7 +28,7 @@
 .navbar h3 {
   color: white;
   text-align: center;
-  margin-top: 0;
-  padding-left: 70px;
+  margin-top: 1%;
+  padding-left: 2%;
   font-weight: normal;
 }
