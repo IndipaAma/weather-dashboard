@@ -1,0 +1,25 @@
+.navbar {
+  padding: 1%;
+  background-color: rgb(111, 196, 224);
+}
+.navbar-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 15px;
+}
+.navbar-title h1 {
+  font-size: 35px;
+  color: white;
+}
+.navbar-title img {
+  width: 60px;
+  border-radius: 20px;
+}
+.navbar h3 {
+  color: white;
+  text-align: center;
+  margin-top: 0;
+  padding-left: 70px;
+  font-weight: normal;
+}
