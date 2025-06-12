@@ -17,7 +17,7 @@
   font-size: clamp(
     1.5rem,
     2.5vw,
-    2rem
+    3.5rem
   ); /* font will scale between 1rem and 2 rem */
   color: white;
 }

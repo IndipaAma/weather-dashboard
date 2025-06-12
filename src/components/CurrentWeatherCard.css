@@ -1,29 +1,25 @@
-.current-temp {
-  font-size: 3vw;
-  text-align: center;
-  padding: 15px;
-}
-
-.current-weather-card {
-  display: flex;
-  justify-content: center;
+.current-weather-card-container {
   background-color: white;
   border-radius: 15px;
+  padding: 40px;
 }
-.current-temp-container h3 {
-  text-align: center;
-}
-.current-temp-container div {
+.upper-weather-card {
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding-top: 10px;
 }
 
-.current-temp-container div img {
-  height: 40px;
+.current-weather-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1vw;
+  justify-content: center;
+  padding-top: 7%;
 }
 
-.current-temp-container div h2 {
-  color: rgb(37, 37, 245);
+.favourites-button {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
 }

@@ -1,0 +1,22 @@
+.current-temp {
+  font-size: 3vw;
+  text-align: center;
+  padding: 15px;
+}
+.current-temp-container h3 {
+  text-align: center;
+}
+.current-temp-container div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.current-temp-container div img {
+  height: 40px;
+}
+
+.current-temp-container div h2 {
+  color: rgb(37, 37, 245);
+}
