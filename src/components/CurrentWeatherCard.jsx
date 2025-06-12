@@ -3,21 +3,23 @@ import FavouritesButton from "./FavouritesButton";
 import CurrentWeatherDetails from "./CurrentWeatherDetails";
 import TempAndLocation from "./TempAndLocation";
 import { useWeatherStore } from "../store/UseWeatherStore";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const CurrentWeatherCard = () => {
-  const [coordinates, setCoordinates] = useState({
-    latitude: 6.9271,
-    longitude: 79.8612,
-  });
-  const { currentWeather, getCurrentWeather } = useWeatherStore();
+  const {
+    currentWeather,
+    getCurrentWeather,
+    latitude,
+    longitude,
+    setCoordinates,
+  } = useWeatherStore();
 
   useEffect(() => {
-    getCurrentWeather(coordinates.latitude, coordinates.longitude);
-  }, [coordinates]);
+    getCurrentWeather(latitude, longitude);
+  }, [latitude, longitude]);
 
   const tempurature = currentWeather
-    ? Math.round(currentWeather.main.temp - 273.15)
+    ? Math.round(currentWeather.main.temp)
     : null;
   const weatherDescription = currentWeather
     ? currentWeather.weather[0].main
@@ -28,8 +30,11 @@ const CurrentWeatherCard = () => {
   const windSpeed = currentWeather ? currentWeather.wind.speed : null;
   const pressure = currentWeather ? currentWeather.main.pressure : null;
   const feelsLike = currentWeather
-    ? Math.round(currentWeather.main.feels_like - 273.15)
+    ? Math.round(currentWeather.main.feels_like)
     : null;
+  const weatherIconCode = currentWeather
+    ? currentWeather.weather[0].icon
+    : "Icon not available";
 
   return (
     <div className="current-weather-card-container">
@@ -39,6 +44,7 @@ const CurrentWeatherCard = () => {
           weatherDescription={weatherDescription}
           country={country}
           city={city}
+          weatherIconCode={weatherIconCode}
         />
       </div>
       <div className="current-weather-details">

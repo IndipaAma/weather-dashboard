@@ -1,0 +1,17 @@
+.date-and-temp-card-container {
+  padding: 10px;
+}
+.date-and-temp-container {
+  background-color: rgba(196, 190, 196, 0.582);
+  padding: 15px;
+  margin: 10px;
+  border-radius: 11px;
+}
+.date-and-temp-container h2,
+p {
+  text-align: center;
+}
+.minMax-temp {
+  display: flex;
+  justify-content: space-between;
+}

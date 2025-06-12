@@ -5,6 +5,8 @@ export const useWeatherStore = create((set, get) => ({
   apiKey: import.meta.env.VITE_API_KEY,
   currentWeather: null,
   forecastWeather: null,
+  latitude: 6.9271,
+  longitude: 79.8612,
   isLoading: false,
   error: null,
 
@@ -20,14 +22,22 @@ export const useWeatherStore = create((set, get) => ({
     }
     try {
       const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&units=metric&lon=${lon}&appid=${apiKey}`
       );
-      set({ currentWeather: response.data, isLoading: false, error: null });
+      set({
+        currentWeather: response.data,
+        latitude: lat,
+        longitude: lon,
+        isLoading: false,
+        error: null,
+      });
       console.log("Weather data fetched successfully:", response.data);
     } catch (error) {
       set({ isLoading: false, error: error.message });
     }
   },
+
+  setCoordinates: (lat, lon) => set({ latitude: lat, longitude: lon }),
 
   getFiveDayForecast: async (lat, lon) => {
     set({ isLoading: true, error: null });
@@ -42,9 +52,15 @@ export const useWeatherStore = create((set, get) => ({
 
     try {
       const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`
       );
-      set({ forecastWeather: response.data, isLoading: false, error: null });
+      set({
+        forecastWeather: response.data,
+        latitude: lat,
+        longitude: lon,
+        isLoading: false,
+        error: null,
+      });
       console.log(
         "Five-day forecast data fetched successfully:",
         response.data

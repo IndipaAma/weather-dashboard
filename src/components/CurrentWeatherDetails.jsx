@@ -6,8 +6,8 @@ import "react-loading-skeleton/dist/skeleton.css";
 const CurrentWeatherDetails = ({ labelkey, value }) => {
   return (
     <div className="weather-detail">
-      <h1>{labelkey}</h1>
-      <p>{value}</p>
+      <p>{labelkey}</p>
+      <h2>{value}</h2>
     </div>
   );
 };
