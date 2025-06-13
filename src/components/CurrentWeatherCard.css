@@ -1,12 +1,13 @@
-.current-weather-card-container {
+/* .current-weather-card-container {
   background-color: white;
   border-radius: 15px;
   padding: 10px;
-}
-.upper-weather-card {
+}  */
+
+/* .upper-weather-card {
   display: flex;
   justify-content: center;
-}
+} */
 
 .current-weather-details {
   display: flex;
@@ -21,5 +22,5 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding-top: 40px;
+  padding: 5%;
 }

@@ -1,11 +1,18 @@
 .date-and-temp-card-container {
-  padding: 10px;
-}
-.date-and-temp-container {
+  flex: 1 1 130px;
+  max-width: 200px;
+  min-width: 100px;
+  margin: 0.5rem;
+  padding: 0.5rem;
   background-color: rgba(196, 190, 196, 0.582);
-  padding: 15px;
-  margin: 10px;
-  border-radius: 11px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.date-and-temp-card-container:hover {
+  transform: scale(1.05);
 }
 .date-and-temp-container h2,
 p {

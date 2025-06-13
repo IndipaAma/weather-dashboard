@@ -3,6 +3,9 @@ import cloudIcon from "../assets/cloud.png";
 import drizzleIcon from "../assets/drizzle.png";
 import rainIcon from "../assets/rain.png";
 import snowIcon from "../assets/snow.png";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import { useWeatherStore } from "../store/UseWeatherStore";
 
 const WeatherIcon = ({ weatherIconCode, size }) => {
   const weatherIcons = {
@@ -28,15 +31,20 @@ const WeatherIcon = ({ weatherIconCode, size }) => {
 
   const icon = weatherIcons[weatherIconCode] || clearIcon;
 
+  const { isLoading } = useWeatherStore();
+
   return (
     <div>
-      <img
-        src={icon}
-        alt="Weather Icon"
-        className="weather-icon"
-        key={icon.key}
-        style={{ width: size, height: size }}
-      />
+      {isLoading ? (
+        <Skeleton borderRadius="50%" width={size} height={size} />
+      ) : (
+        <img
+          src={icon}
+          alt="Weather Icon"
+          className="weather-icon"
+          style={{ width: size, height: size }}
+        />
+      )}
     </div>
   );
 };
