@@ -1,7 +1,7 @@
-import Navbar from "./components/Navbar";
+import Navbar from "./components/nav-bar/Navbar.jsx";
 import "./App.css";
-import CurrentWeatherCard from "./components/CurrentWeatherCard";
-import WeatherForecastCard from "./components/WeatherForecastCard";
+import CurrentWeatherCard from "./components/current-weather/CurrentWeatherCard.jsx";
+import WeatherForecastCard from "./components/forecast-weather/WeatherForecastCard.jsx";
 import SplashScreen from "./components/splash-screen/SplashScreen";
 import { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
