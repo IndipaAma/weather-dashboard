@@ -1,6 +1,8 @@
 import axios from "axios";
 import { create } from "zustand";
 
+const storedFavourites = JSON.parse(localStorage.getItem("favourites") || "[]");
+
 export const useWeatherStore = create((set, get) => ({
   apiKey: import.meta.env.VITE_API_KEY,
   currentWeather: null,
@@ -9,6 +11,7 @@ export const useWeatherStore = create((set, get) => ({
   longitude: 79.8612,
   isLoading: false,
   error: null,
+  favourites: storedFavourites,
 
   getCurrentWeather: async (lat, lon) => {
     set({ isLoading: true, error: null });
@@ -36,8 +39,6 @@ export const useWeatherStore = create((set, get) => ({
       set({ isLoading: false, error: error.message });
     }
   },
-
-  setCoordinates: (lat, lon) => set({ latitude: lat, longitude: lon }),
 
   getFiveDayForecast: async (lat, lon) => {
     set({ isLoading: true, error: null });
@@ -67,6 +68,25 @@ export const useWeatherStore = create((set, get) => ({
       );
     } catch (error) {
       set({ isLoading: false, error: error.message });
+    }
+  },
+  setCoordinates: (lat, lon) => set({ latitude: lat, longitude: lon }),
+
+  addToFavourites: (lat, lon) => {
+    const { favourites } = get();
+    const newFavourite = { latitude: lat, longitude: lon };
+
+    //check if the same coordinates already exist in favourites
+    const duplicates = favourites.some(
+      (fav) => fav.latitude === lat && fav.longitude === lon
+    );
+
+    if (!duplicates) {
+      const updated = [...favourites, newFavourite];
+      set({ favourites: updated });
+      localStorage.setItem("favourites", JSON.stringify(updated));
+
+      console.log("Updated favourites:", updated);
     }
   },
 }));

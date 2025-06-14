@@ -7,19 +7,20 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [splashScreen, setSplashScreen] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setSplashScreen(false);
-    }, 3000);
+    }, 1500);
     return () => clearTimeout(timer);
   }, []);
 
   return splashScreen ? (
     <SplashScreen />
   ) : (
-    <div className="app">
-      <Navbar />
+    <div className="app" data-theme={isDark ? "dark" : "light"}>
+      <Navbar isDark={isDark} setIsDark={setIsDark} />
       <div className="body-container">
         <div className="weather-container">
           <CurrentWeatherCard />

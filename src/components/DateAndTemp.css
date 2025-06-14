@@ -4,7 +4,7 @@
   min-width: 100px;
   margin: 0.5rem;
   padding: 0.5rem;
-  background-color: rgba(196, 190, 196, 0.582);
+  background-color: var(--foreground-color);
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -17,6 +17,10 @@
 .date-and-temp-container h2,
 p {
   text-align: center;
+  color: var(--primary-text-color);
+}
+.default-container h2 {
+  color: var(--primary-text-color);
 }
 .minMax-temp {
   display: flex;

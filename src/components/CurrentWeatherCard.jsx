@@ -6,13 +6,8 @@ import { useWeatherStore } from "../store/UseWeatherStore";
 import { useEffect } from "react";
 
 const CurrentWeatherCard = () => {
-  const {
-    currentWeather,
-    getCurrentWeather,
-    latitude,
-    longitude,
-    setCoordinates,
-  } = useWeatherStore();
+  const { currentWeather, getCurrentWeather, latitude, longitude } =
+    useWeatherStore();
 
   useEffect(() => {
     getCurrentWeather(latitude, longitude);
