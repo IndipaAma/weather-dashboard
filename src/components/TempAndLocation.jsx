@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./TempAndLocation.css";
 import PinLocation from "../assets/Pin-locations.png";
 
-import WeatherIcon from "./WeatherIcon";
+import WeatherIcon from "../components/util-components/WeatherIcon.jsx";
 
 import { useWeatherStore } from "../store/UseWeatherStore";
 import Skeleton from "react-loading-skeleton";

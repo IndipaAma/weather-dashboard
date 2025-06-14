@@ -1,0 +1,14 @@
+.weather-detail {
+  flex: 0 0 38%;
+  background-color: var(--foreground-color);
+  padding: 2%;
+  text-align: center;
+  border-radius: 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.weather-detail:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

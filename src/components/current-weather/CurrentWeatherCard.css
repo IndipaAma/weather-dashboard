@@ -1,0 +1,15 @@
+.current-weather-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1vw;
+  justify-content: center;
+  padding-top: 7%;
+}
+
+.favourites-button {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 5%;
+}
