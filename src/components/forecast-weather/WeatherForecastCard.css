@@ -1,0 +1,11 @@
+.title-container {
+  margin: 1rem;
+  color: var(--primary-text-color);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.342);
+}
+
+.forecast-items-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+}
