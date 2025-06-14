@@ -1,5 +1,6 @@
 import axios from "axios";
 import { create } from "zustand";
+import toast from "react-hot-toast";
 
 const storedFavourites = JSON.parse(localStorage.getItem("favourites") || "[]");
 
@@ -34,6 +35,7 @@ export const useWeatherStore = create((set, get) => ({
         isLoading: false,
         error: null,
       });
+      toast.success("Successfully Loaded");
       console.log("Weather data fetched successfully:", response.data);
     } catch (error) {
       set({ isLoading: false, error: error.message });
@@ -85,7 +87,7 @@ export const useWeatherStore = create((set, get) => ({
       const updated = [...favourites, newFavourite];
       set({ favourites: updated });
       localStorage.setItem("favourites", JSON.stringify(updated));
-
+      toast.success("Successfully Added!");
       console.log("Updated favourites:", updated);
     }
   },

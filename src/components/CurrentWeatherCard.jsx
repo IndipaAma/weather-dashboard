@@ -4,6 +4,7 @@ import CurrentWeatherDetails from "./CurrentWeatherDetails";
 import TempAndLocation from "./TempAndLocation";
 import { useWeatherStore } from "../store/UseWeatherStore";
 import { useEffect } from "react";
+import * as motion from "motion/react-client";
 
 const CurrentWeatherCard = () => {
   const { currentWeather, getCurrentWeather, latitude, longitude } =
@@ -32,7 +33,15 @@ const CurrentWeatherCard = () => {
     : "Icon not available";
 
   return (
-    <div className="current-weather-card-container">
+    <motion.div
+      className="current-weather-card-container"
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.4,
+        scale: { type: "spring", bounce: 0.5, duration: 3 },
+      }}
+    >
       <div className="upper-weather-card">
         <TempAndLocation
           tempurature={tempurature}
@@ -54,7 +63,7 @@ const CurrentWeatherCard = () => {
       <div className="favourites-button">
         <FavouritesButton />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

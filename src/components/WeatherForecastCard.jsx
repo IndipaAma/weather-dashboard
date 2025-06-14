@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import "./WeatherForecastCard.css";
 import DateAndTemp from "./DateAndTemp";
 import { useWeatherStore } from "../store/UseWeatherStore";
+import * as motion from "motion/react-client";
 
 const WeatherForecastCard = () => {
   const {
@@ -38,7 +39,15 @@ const WeatherForecastCard = () => {
       <div className="title-container">
         <h1>5-Day Forecast</h1>
       </div>
-      <div className="forecast-items-container">
+      <motion.div
+        className="forecast-items-container"
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.4,
+          scale: { type: "spring", bounce: 0.5, duration: 3 },
+        }}
+      >
         {forecastDetails.map((detail, index) => (
           <DateAndTemp
             key={index}
@@ -55,7 +64,7 @@ const WeatherForecastCard = () => {
             feelsLike={detail.feelsLike}
           />
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

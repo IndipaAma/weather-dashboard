@@ -6,6 +6,7 @@ import snowIcon from "../assets/snow.png";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { useWeatherStore } from "../store/UseWeatherStore";
+import * as motion from "motion/react-client";
 
 const WeatherIcon = ({ weatherIconCode, size }) => {
   const weatherIcons = {
@@ -38,11 +39,19 @@ const WeatherIcon = ({ weatherIconCode, size }) => {
       {isLoading ? (
         <Skeleton borderRadius="50%" width={size} height={size} />
       ) : (
-        <img
+        <motion.img
           src={icon}
           alt="Weather Icon"
           className="weather-icon"
           style={{ width: size, height: size }}
+          animate={{ scale: [0.1, 1.2, 2, 1, 1], rotate: [0, 0, 360, 0, 0] }}
+          transition={{
+            duration: 10,
+            ease: "easeInOut",
+            times: [0, 0.2, 0.5, 0.8, 1],
+            repeat: Infinity,
+            repeatDelay: 3,
+          }}
         />
       )}
     </div>
