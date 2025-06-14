@@ -12,7 +12,7 @@ const CurrentWeatherCard = () => {
 
   useEffect(() => {
     getCurrentWeather(latitude, longitude);
-  }, [latitude, longitude]);
+  }, [latitude, longitude, getCurrentWeather]);
 
   const tempurature = currentWeather
     ? Math.round(currentWeather.main.temp)

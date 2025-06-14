@@ -5,17 +5,12 @@ import { useWeatherStore } from "../store/UseWeatherStore";
 import * as motion from "motion/react-client";
 
 const WeatherForecastCard = () => {
-  const {
-    forecastWeather,
-    getFiveDayForecast,
-    latitude,
-    longitude,
-    setCoordinates,
-  } = useWeatherStore();
+  const { forecastWeather, getFiveDayForecast, latitude, longitude } =
+    useWeatherStore();
 
   useEffect(() => {
     getFiveDayForecast(latitude, longitude);
-  }, [latitude, longitude]);
+  }, [latitude, longitude, getFiveDayForecast]);
 
   const forecastList = forecastWeather?.list || [];
   const midDayForecast = forecastList.filter((item) =>
