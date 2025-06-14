@@ -91,4 +91,14 @@ export const useWeatherStore = create((set, get) => ({
       console.log("Updated favourites:", updated);
     }
   },
+
+  removeFromFavourites: (lat, lon) => {
+    const { favourites } = get();
+    const updated = favourites.filter(
+      (fav) => fav.latitude !== lat || fav.longitude !== lon
+    );
+    set({ favourites: updated });
+    localStorage.setItem("favourites", JSON.stringify(updated));
+    toast.success("Removed from favourites!");
+  },
 }));
