@@ -36,7 +36,7 @@ A modern, responsive weather dashboard built with React that provides current we
 - Zustand (State Management)
 - Axios
 - React Hot Toast
-- Motion (Animations)
+- Framer - Motion (Animations)
 
 ##Install dependencies:
   - npm install
