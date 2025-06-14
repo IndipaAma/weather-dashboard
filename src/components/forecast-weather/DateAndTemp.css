@@ -1,0 +1,28 @@
+.date-and-temp-card-container {
+  flex: 1 1 130px;
+  max-width: 200px;
+  min-width: 100px;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  background-color: var(--foreground-color);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.date-and-temp-card-container:hover {
+  transform: scale(1.05);
+}
+.date-and-temp-container h2,
+p {
+  text-align: center;
+  color: var(--primary-text-color);
+}
+.default-container h2 {
+  color: var(--primary-text-color);
+}
+.minMax-temp {
+  display: flex;
+  justify-content: space-between;
+}
